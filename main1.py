@@ -18,10 +18,6 @@ def init_db():
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
 
-    # eski jadvalni o'chirib yangisini yaratamiz
-    cursor.execute("DROP TABLE IF EXISTS movies")
-    cursor.execute("DROP TABLE IF EXISTS users")
-
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users(
         user_id INTEGER PRIMARY KEY,
@@ -297,4 +293,5 @@ if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
     from main1 import ADMIN_ID
     user = ADMIN_ID
+
     print(ADMIN_ID)
